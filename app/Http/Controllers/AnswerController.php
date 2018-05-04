@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Answer;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\QuestionAnswered;
+Use App\User;
 
 use Illuminate\Http\Request;
 
@@ -49,11 +51,13 @@ class AnswerController extends Controller
 
         ]);
         $input = request()->all();
+        $user = Auth::user();
         $question = Question::find($question);
         $Answer = new Answer($input);
         $Answer->user()->associate(Auth::user());
         $Answer->question()->associate($question);
         $Answer->save();
+        $user->notify(new QuestionAnswered());
 
         return redirect()->route('questions.show',['question_id' => $question->id])->with('message', 'Saved');
     }
