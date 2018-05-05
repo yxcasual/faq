@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -57,7 +58,8 @@
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @else
                         <li class="float-right">
-                            <a id="notifications" class="nav-link" href="{{ route('notifications.show') }}">
+                            <a id="notifications" class="nav-link" href="{{ route('notifications.show') }}"><i class="fa fa-bell" aria-hidden="true"></i>
+
                                 Notifications
                             </a>
 
