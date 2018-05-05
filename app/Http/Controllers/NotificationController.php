@@ -59,6 +59,16 @@ class NotificationController extends Controller
         return view('notification')->with(['answers' => $answers, 'questions' => $questions]);
     }
 
+    public function notifyshow()
+    {
+        $user = Auth::user();
+        //$questions = $user->questions()->paginate(6);
+        //$answers = $user->answers()->paginate(6);
+        //return view('notification')->with('questions', $questions);
+        //return view('notification');
+        return view('notify');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

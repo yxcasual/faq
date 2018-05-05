@@ -58,9 +58,10 @@
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @else
                         <li class="float-right">
-                            <a id="notifications" class="nav-link" href="{{ route('notifications.show') }}"><i class="fa fa-bell" aria-hidden="true"></i>
+                            <a id="notifications" class="nav-link" href="{{ route('notifys.show') }}"><i class="fa fa-bell" aria-hidden="true"></i>
 
-                                Notifications
+                                Notifications  <i class="fa fa-exclamation fa-1g"  style="color: crimson " aria-hidden="true"></i>
+
                             </a>
 
                         </li>

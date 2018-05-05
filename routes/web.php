@@ -33,6 +33,7 @@ Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@up
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
 Route::get('/notification', 'NotificationController@show')->name('notifications.show');
+Route::get('/notify', 'NotificationController@notifyshow')->name('notifys.show');
 
 Route::resources([
     'questions' => 'QuestionController',
