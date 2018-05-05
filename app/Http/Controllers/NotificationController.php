@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class NotificationController extends Controller
 {
@@ -49,8 +51,12 @@ class NotificationController extends Controller
      */
     public function show()
     {
-
-        return view('notification');
+        $user = Auth::user();
+        $questions = $user->questions()->paginate(6);
+        $answers = $user->answers()->paginate(6);
+        //return view('notification')->with('questions', $questions);
+        //return view('notification');
+        return view('notification')->with(['answers' => $answers, 'questions' => $questions]);
     }
 
     /**

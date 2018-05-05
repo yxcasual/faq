@@ -6,10 +6,13 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Answer;
 
 class QuestionAnswered extends Notification
 {
     use Queueable;
+
+
 
     /**
      * Create a new notification instance.
@@ -29,7 +32,7 @@ class QuestionAnswered extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail' , 'database'];
     }
 
     /**
@@ -46,6 +49,7 @@ class QuestionAnswered extends Notification
 
     }
 
+
     /**
      * Get the array representation of the notification.
      *
@@ -55,7 +59,8 @@ class QuestionAnswered extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+
+            'data' => "Question has been answered",
         ];
     }
 }
