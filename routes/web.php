@@ -34,6 +34,9 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 
 Route::get('/notification', 'NotificationController@show')->name('notifications.show');
 Route::get('/notify', 'NotificationController@notifyshow')->name('notifys.show');
+Route::get('/notify/mark', 'NotificationController@mark')->name('notifys.mark');
+
+
 
 Route::resources([
     'questions' => 'QuestionController',

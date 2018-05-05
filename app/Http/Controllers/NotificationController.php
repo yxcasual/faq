@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Notifications\QuestionAnswered;
 
 class NotificationController extends Controller
 {
@@ -62,12 +63,23 @@ class NotificationController extends Controller
     public function notifyshow()
     {
         $user = Auth::user();
+
         //$questions = $user->questions()->paginate(6);
         //$answers = $user->answers()->paginate(6);
         //return view('notification')->with('questions', $questions);
         //return view('notification');
         return view('notify');
     }
+    public function mark()
+    {
+
+        $user = Auth::user();
+        $user->unreadNotifications->markAsRead();
+        //return view('home');
+        return redirect()->route('notifys.show')->with('message', 'Marked as Read');
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.

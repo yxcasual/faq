@@ -60,7 +60,11 @@
                         <li class="float-right">
                             <a id="notifications" class="nav-link" href="{{ route('notifys.show') }}"><i class="fa fa-bell" aria-hidden="true"></i>
 
-                                Notifications  <i class="fa fa-exclamation fa-1g"  style="color: crimson " aria-hidden="true"></i>
+                                Notifications
+                                @if(auth()->user()->unreadNotifications->count() !=0)
+                                <i class="fa fa-exclamation fa-1g"  style="color: crimson " aria-hidden="true"></i>
+                                    @endif
+
 
                             </a>
 

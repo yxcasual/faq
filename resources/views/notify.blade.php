@@ -6,6 +6,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Notifications
+                        <a class="btn btn-primary float-right" href={{route('notifys.mark')}}>
+                            MarK All as Read
+                        </a>
 
 
                         <div class="card-body">
@@ -13,18 +16,32 @@
                             <div class="card-deck">
                                 <div class="d-flex flex-column">
 
+                                    Unread <br/><br/>
 
 
-
-                               @forelse(auth()->user()->notifications as $notification)
-                                        <div class="card mb-2" style="width: 18rem;">
-                                            <li class="ml-4"><a href="#"> {{$notification->data['data']}}</a>
-
-                                    </li>
+                               @forelse(auth()->user()->unreadNotifications as $notification)
+                                        <div class="card mb-3" style="width: 18rem;">
+                                            <li class="ml-3" style="background-color: gold"><a href="#"> {{$notification->data['data']}}</a>
+                                            </li>
                                         </div>
                                    @empty
-                                   none
+
+                                        <div class="card mb-3" style="width: 18rem;">
+                                            <li class="ml-3"> No Notifications
+                                            </li>
+                                        </div>
+
                                 @endforelse
+                                    Read
+                                   @forelse(auth()->user()->readNotifications as $notification)
+                                       <div class="card mb-3" style="width: 18rem;">
+                                           <li class="ml-3" style="background-color: #c6c8ca"><a href="#"> {{$notification->data['data']}}</a>
+                                           </li>
+                                       </div>
+                                   @empty
+
+                                   @endforelse
+
 
                                 </div>
                             </div>
