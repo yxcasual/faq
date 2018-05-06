@@ -32,9 +32,11 @@ Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name
 Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
-Route::get('/notification', 'NotificationController@show')->name('notifications.show');
+//Route::get('/notification', 'NotificationController@show')->name('notifications.show');
 Route::get('/notify', 'NotificationController@notifyshow')->name('notifys.show');
 Route::get('/notify/mark', 'NotificationController@mark')->name('notifys.mark');
+
+Route::get('/notificationtoanswer', 'NotificationController@show')->name('notoans.show');
 
 
 

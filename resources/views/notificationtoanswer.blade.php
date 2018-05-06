@@ -25,9 +25,11 @@
                                                 <div class="card-body">
                                                     <p class="card-text">{{$question->body}}</p>
                                                 </div>
+
                                                 <div class="card-body">
                                                     {{$answer->body}}
                                                 </div>
+
                                                 <div class="card-footer">
                                                     <p class="card-text">
 

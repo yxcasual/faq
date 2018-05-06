@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Notifications\QuestionAnswered;
+use App\Question;
+use App\Answer;
 
 class NotificationController extends Controller
 {
@@ -55,10 +57,11 @@ class NotificationController extends Controller
         $user = Auth::user();
         $questions = $user->questions()->paginate(6);
         $answers = $user->answers()->paginate(6);
-        //return view('notification')->with('questions', $questions);
-        //return view('notification');
-        return view('notification')->with(['answers' => $answers, 'questions' => $questions]);
+        return view('notificationtoanswer')->with(['answers' => $answers, 'questions' => $questions]);
+        //$answer = Answer::find($answer);
+        //return view('notificationtoanswer')->with(['answer' => $answer, 'question' => $question]);
     }
+
 
     public function notifyshow()
     {
