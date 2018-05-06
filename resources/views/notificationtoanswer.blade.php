@@ -11,14 +11,20 @@
                         <div class="card-body">
 
                             <div class="card-deck">
+
+
                                 @forelse($questions as $question)
+
                                     @forelse($question->answers as $answer)
-                                        <div class="col-sm-4 d-flex align-items-stretch">
+                                        <div class="d-flex  flex-column align-items-stretch">
                                             <div class="card mb-3 ">
                                                 <div class="card-header">
                                                     <small class="text-muted">
-                                                        Updated: {{ $question->created_at->diffForHumans() }}
-                                                        Answers: {{ $question->answers()->count() }}
+                                                        {{ $question->created_at->diffForHumans() }}<br/><a class="btn btn-primary float-right"
+                                                                                                            href="{{ route('questions.show', ['id' => $question->id]) }}">
+                                                            View
+                                                        </a>
+
 
                                                     </small>
                                                 </div>
@@ -26,19 +32,11 @@
                                                     <p class="card-text">{{$question->body}}</p>
                                                 </div>
 
-                                                <div class="card-body">
+                                                <div class="card-body" style="color: #1c7430">
                                                     {{$answer->body}}
                                                 </div>
 
-                                                <div class="card-footer">
-                                                    <p class="card-text">
-
-                                                        <a class="btn btn-primary float-right"
-                                                           href="{{ route('questions.show', ['id' => $question->id]) }}">
-                                                            View
-                                                        </a>
-                                                    </p>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     @empty
