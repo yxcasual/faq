@@ -21,7 +21,7 @@
 
                                @forelse(auth()->user()->unreadNotifications as $notification)
                                         <div class="card mb-3" style="width: 18rem;">
-                                            <li class="ml-3" style="background-color: gold"><a href={{route('notoans.show')}}> {{$notification->data['data']}}</a>
+                                            <li class="ml-3" style="background-color: gold"><a href={{route('notoans.show')}}> {{$notification->data['data']}}</a><br/>{{ $notification->created_at->diffForHumans() }}
                                             </li>
                                         </div>
                                    @empty
@@ -35,8 +35,10 @@
                                     Read
                                    @forelse(auth()->user()->readNotifications as $notification)
                                        <div class="card mb-3" style="width: 18rem;">
-                                           <li class="ml-3" style="background-color: #c6c8ca"><a href={{route('notoans.show')}}> {{$notification->data['data']}}</a>
+                                           <li class="ml-3" style="background-color: #c6c8ca"><a href={{route('notoans.show')}}> {{$notification->data['data']}}</a><br/>{{ $notification->created_at->diffForHumans() }}
                                            </li>
+
+
                                        </div>
                                    @empty
 
