@@ -22,18 +22,18 @@
                                                     <small class="text-muted">
                                                         {{ $question->created_at->diffForHumans() }}<br/><a class="btn btn-primary float-right"
                                                                                                             href="{{ route('questions.show', ['id' => $question->id]) }}">
-                                                            View
+                                                            <i class="fa fa-wrench" aria-hidden="true"></i>
                                                         </a>
-
-
                                                     </small>
                                                 </div>
                                                 <div class="card-body">
-                                                    <p class="card-text">{{$question->body}}</p>
+                                                    <p class="card-text ">{{$question->body}}</p>
                                                 </div>
-
                                                 <div class="card-body" style="color: #1c7430">
-                                                    {{$answer->body}}
+                                                    <p class="ml-4 mb-2" style="color: #005cbf">Answer</p>
+                                                    <div class="card">
+                                                        <p class="ml-2 mr-2"> {{$answer->body}}</p>
+                                                    </div>
                                                 </div>
 
                                                 

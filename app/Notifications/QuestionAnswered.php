@@ -45,7 +45,7 @@ class QuestionAnswered extends Notification
     {
         return (new MailMessage)
                     ->line('The is to notify you that the Question you posted has been answered.')
-                    ->action('View Answer', url('/notification'));
+                    ->action('View Answer', url('/notify'));
 
     }
 
