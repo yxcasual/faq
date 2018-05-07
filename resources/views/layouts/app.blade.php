@@ -57,8 +57,8 @@
                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @else
-                        <li class="float-right">
-                            <a id="notifications" class="nav-link" href="{{ route('notifys.show') }}"><i class="fa fa-bell" aria-hidden="true"></i>
+                        <li class="nav-item dropdown">
+                            <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="fa fa-bell" aria-hidden="true"></i>
 
                                 Notifications
                                 @if(auth()->user()->unreadNotifications->count() !=0)
@@ -66,9 +66,26 @@
                                     @endif
 
 
+
                             </a>
 
+
+                            <div class="dropdown-menu" aria-labelledby="notifications">
+
+                                @forelse(auth()->user()->unreadNotifications as $notification)
+                                    <a class="dropdown-item" href="{{route('notoans.show')}}" style="background-color: lightgreen"> {{$notification->data['data']}}</a>
+                @empty
+
+                                    <a class="dropdown-item" href="#">No New Notifications</a>
+
+                @endforelse
+                                    <a class="dropdown-item" href="{{ route('notifys.show') }}" style="background-color: darkgray"><i class="fa fa-cog" aria-hidden="true"></i>
+                                        All Notifications</a>
+
+                            </div>
+
                         </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 My Account <span class="caret"></span>
