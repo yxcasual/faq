@@ -44,8 +44,8 @@ class QuestionAnswered extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The is to notify you that the Question you posted has been answered.')
-                    ->action('View Answer', url('/notify'));
+                    ->line('This is to notify you that the Question you posted has been answered.')
+                    ->action('View Answer', url('/notificationtoanswer'));
 
     }
 
